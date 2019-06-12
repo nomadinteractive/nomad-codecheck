@@ -1,14 +1,11 @@
 {
-  "name": "nomad-codecheck",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bin": {
-    "creator": "./index.js"
-  },
-  "author": "",
-  "license": "ISC"
+	"name": "nomad-codecheck",
+	"version": "1.0.1",
+	"description": "",
+	"main": "index.js",
+	"bin": {
+		"nomad-codecheck": "./index.js"
+	},
+	"author": "",
+	"license": "MIT"
 }
