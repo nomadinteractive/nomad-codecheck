@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const chalk = require('chalk')
 
 const noAssetsOutsideAssetsFolder = require('./rules/no-assets-outside-assets-folder')
 const noNetworkRequestOutsideNetworkManagersFolder = require('./rules/no-network-request-outside-network-managers-folder')
@@ -74,7 +75,8 @@ new Promise((resolve, reject) => {
 	process.exit(0)
 })
 .catch((err) => {
-	console.log('Code check failed...\n\n', err || '')
+	console.log(chalk.red('Some rules check failed... ' + (err || '')))
+	console.log('')
 	process.exit(1)
 })
 

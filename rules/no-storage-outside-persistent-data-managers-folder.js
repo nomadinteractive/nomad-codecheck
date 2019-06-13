@@ -30,14 +30,14 @@ module.exports = (rootPath, persistentDataManagersFolderPath) => {
 			if (parseInt(line.split(':')[0]) > 0)
 				return "      " + chalk.gray(line.replace(/\t/g, ' '))
 			else
-				return "  - in " + chalk.blue(line)
+				return "  - in " + chalk.blue(line.replace(rootPath + '/', ''))
 		}).join('\n'))
-		console.log('\n')
+		console.log('')
 		return false
 	}
 	else {
 		console.log(chalk.green('✓') + ' Passed for rule: no-storage-outside-persistent-data-managers-folder')
-		console.log('\n')
+		console.log('')
 		return true
 	}
 }

@@ -25,13 +25,13 @@ module.exports = (rootPath, assetsFolderPath) => {
 	if (result.stdout.length > 0) {
 		console.log(chalk.red('𐄂 Rule violation: no-assets-outside-assets-folder'))
 		console.log('  Files needs to be reviewed:')
-		console.log(result.stdout.trim().split('\n').map(line => "  - " + line).join('\n'))
-		console.log('\n')
+		console.log(result.stdout.trim().split('\n').map(line => "  - " + chalk.blue(line.replace(rootPath + '/', ''))).join('\n'))
+		console.log('')
 		return false
 	}
 	else {
 		console.log(chalk.green('✓') + ' Passed for rule: no-assets-outside-assets-folder')
-		console.log('\n')
+		console.log('')
 		return true
 	}
 }
