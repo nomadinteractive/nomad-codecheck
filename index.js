@@ -40,7 +40,7 @@ new Promise((resolve, reject) => {
 	return new Promise((resolve2, reject2) => {
 		if (foundConfigFile.js) {
 			// it's a js extension which will be a js module
-			resolve2(require('./' + foundConfigFile.path))
+			resolve2(require(foundConfigFile.path))
 		}
 		else {
 			fs.readFile(foundConfigFile.path, 'utf8', (err, data) => {
