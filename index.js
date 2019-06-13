@@ -9,6 +9,7 @@ const noStorageOutsidePersistentDataManagersFolder = require('./rules/no-storage
 
 let rootPath = process.argv[2] || './'
 rootPath = rootPath.replace(/^\/+|\/+$/g, '')
+rootPath = path.join(process.cwd(), rootPath)
 // console.log(rootPath)
 
 configFilePath = path.join(rootPath, '/', '.nomad-codecheckrc')
