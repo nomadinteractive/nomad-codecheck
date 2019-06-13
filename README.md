@@ -42,3 +42,8 @@ This rule enforces the practice of keeping all network requests (api calls) to b
 
 #### no-storage-outside-persistent-data-managers-folder
 This rule enforces the practice of keeping all persistent storage use cases to be organized under a specific folder as javascript modules under /persistent-data-managers folder inside the application folder structure. The rule will scan file contents for specific libraries (like local-storage, async-storage, realm...) on all folders except persistent-data-managers folder and will list any file that contains the import/require or usage of these libraries.
+
+
+## Example use
+
+See https://ship.nomadinteractive.co/nomad-interactive/nomad-codecheck-example repository for an example app that will display the rule violations when ```npm run check``` command executed
