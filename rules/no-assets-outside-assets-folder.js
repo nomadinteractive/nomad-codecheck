@@ -27,8 +27,10 @@ module.exports = (rootPath, assetsFolderPath) => {
 		console.log('  Files needs to be reviewed:')
 		console.log(result.stdout.trim().split('\n').map(line => "  - " + line).join('\n'))
 		// process.exit(1)
+		return false
 	}
 	else {
 		console.log(chalk.green('✓') + ' Passed for rule: no-assets-outside-assets-folder')
+		return true
 	}
 }

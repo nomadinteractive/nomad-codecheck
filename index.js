@@ -55,24 +55,26 @@ new Promise((resolve, reject) => {
 	return new Promise((resolve3, reject3) => {		
 		if (typeof config['rules'] === 'undefined') reject2('No rules enabled in the configuration')
 
+		errorCount = 0
+
 		if (config.rules.indexOf('no-assets-outside-assets-folder') !== -1)
-			noAssetsOutsideAssetsFolder(rootPath, rootPath + '/assets')
+			if (noAssetsOutsideAssetsFolder(rootPath, rootPath + '/assets')) errorCount++
 
 		if (config.rules.indexOf('no-network-request-outside-network-managers-folder') !== -1)
-			noNetworkRequestOutsideNetworkManagersFolder(rootPath, rootPath + '/network-managers')
+			if (noNetworkRequestOutsideNetworkManagersFolder(rootPath, rootPath + '/network-managers')) errorCount++
 
 		if (config.rules.indexOf('no-storage-outside-persistent-data-managers-folder') !== -1)
-		noStorageOutsidePersistentDataManagersFolder(rootPath, rootPath + '/persistent-data-managers')
+			if (noStorageOutsidePersistentDataManagersFolder(rootPath, rootPath + '/persistent-data-managers')) errorCount++
 
-		// finished
-		resolve3()
+		if (errorCount > 0) reject3()
+		else resolve3()
 	})
 })
 .then(() => {
-	process.exit(0) // successful
+	process.exit(0)
 })
 .catch((err) => {
-	console.log('An error occured', err)
+	console.log('Code check failed...', err)
 	process.exit(1)
 })
 

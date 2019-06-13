@@ -33,8 +33,10 @@ module.exports = (rootPath, persistentDataManagersFolderPath) => {
 				return "  - in " + chalk.blue(line)
 		}).join('\n'))
 		// process.exit(1)
+		return false
 	}
 	else {
 		console.log(chalk.green('✓') + ' Passed for rule: no-storage-outside-persistent-data-managers-folder')
+		return true
 	}
 }
