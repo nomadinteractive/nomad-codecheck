@@ -43,11 +43,12 @@ module.exports = (rootPath, networkManagerFolderPath) => {
 			else
 				return "  - in " + chalk.blue(line)
 		}).join('\n'))
-		// process.exit(1)
+		console.log('\n')
 		return false
 	}
 	else {
 		console.log(chalk.green('✓') + ' Passed for rule: no-network-request-outside-network-managers-folder')
+		console.log('\n')
 		return true
 	}
 }

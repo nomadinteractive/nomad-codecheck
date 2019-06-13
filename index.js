@@ -74,7 +74,7 @@ new Promise((resolve, reject) => {
 	process.exit(0)
 })
 .catch((err) => {
-	console.log('Code check failed...', err)
+	console.log('Code check failed...\n\n', err || '')
 	process.exit(1)
 })
 
