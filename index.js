@@ -59,13 +59,13 @@ new Promise((resolve, reject) => {
 		errorCount = 0
 
 		if (config.rules.indexOf('no-assets-outside-assets-folder') !== -1)
-			if (noAssetsOutsideAssetsFolder(rootPath, rootPath + '/assets')) errorCount++
+			if (!noAssetsOutsideAssetsFolder(rootPath, rootPath + '/assets')) errorCount++
 
 		if (config.rules.indexOf('no-network-request-outside-network-managers-folder') !== -1)
-			if (noNetworkRequestOutsideNetworkManagersFolder(rootPath, rootPath + '/network-managers')) errorCount++
+			if (!noNetworkRequestOutsideNetworkManagersFolder(rootPath, rootPath + '/network-managers')) errorCount++
 
 		if (config.rules.indexOf('no-storage-outside-persistent-data-managers-folder') !== -1)
-			if (noStorageOutsidePersistentDataManagersFolder(rootPath, rootPath + '/persistent-data-managers')) errorCount++
+			if (!noStorageOutsidePersistentDataManagersFolder(rootPath, rootPath + '/persistent-data-managers')) errorCount++
 
 		if (errorCount > 0) reject3()
 		else resolve3()
