@@ -9,6 +9,7 @@
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
+		"branch-name-lint": "^1.0.5",
 		"chalk": "^2.4.2",
 		"fs": "0.0.1-security",
 		"path": "^0.12.7",

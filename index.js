@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
 
+const branchNameLint = require('./rules/branch-name-lint')
 const noAssetsOutsideAssetsFolder = require('./rules/no-assets-outside-assets-folder')
 const noNetworkRequestOutsideNetworkManagersFolder = require('./rules/no-network-request-outside-network-managers-folder')
 const noStorageOutsidePersistentDataManagersFolder = require('./rules/no-storage-outside-persistent-data-managers-folder')
@@ -57,6 +58,9 @@ new Promise((resolve, reject) => {
 		if (typeof config['rules'] === 'undefined') reject2('No rules enabled in the configuration')
 
 		errorCount = 0
+
+		if (config.rules.indexOf('branch-name-lint') !== -1)
+			if (!branchNameLint()) errorCount++
 
 		if (config.rules.indexOf('no-assets-outside-assets-folder') !== -1)
 			if (!noAssetsOutsideAssetsFolder(rootPath, rootPath + '/assets')) errorCount++

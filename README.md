@@ -22,6 +22,7 @@ In the target application folder (usually src or app folder), create ```.nomad-c
 ```
 module.exports = {
 	"rules": [
+		"branch-name-lint",
 		"no-assets-outside-assets-folder",
 		"no-network-request-outside-network-managers-folder",
 		"no-storage-outside-persistent-data-managers-folder",
@@ -33,6 +34,9 @@ module.exports = {
 ## Available rules
 
 Each rule is hardcoded and may be modified to accept a configuration object from the JSON configuration for each script's own preferences.
+
+#### branch-name-lint
+This rule enforces the branch naming convention to be respected.
 
 #### no-assets-outside-assets-folder
 This rule enforces the practice of keeping all static assets (images, videos and font files) under /assets folder inside the application folder structure. The rule will scan all other folders and will list any file that is located outside of /assets folder.
