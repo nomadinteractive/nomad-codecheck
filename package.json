@@ -1,12 +1,12 @@
 {
 	"name": "nomad-codecheck",
-	"version": "1.0.3",
+	"version": "1.0.33",
 	"description": "",
 	"main": "index.js",
 	"bin": {
 		"nomad-codecheck": "./index.js"
 	},
-	"author": "",
+	"author": "Fatih Yildiz <fatih@nomadinteractive.co>",
 	"license": "MIT",
 	"dependencies": {
 		"chalk": "^2.4.2",
