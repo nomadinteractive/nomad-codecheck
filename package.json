@@ -1,7 +1,7 @@
 {
 	"name": "@nomadinteractive/nomad-codecheck",
-	"version": "1.0.36",
-	"description": "",
+	"version": "1.0.37",
+	"description": "A small toolkit consists of individual rules (similar to eslint) to check quality of the codebase and commits.",
 	"main": "index.js",
 	"bin": {
 		"nomad-codecheck": "./index.js"
