@@ -1,17 +1,12 @@
 # Nomad Code Check
 
+A small toolkit consists of individual rules (similar to eslint) to check quality of the codebase and commits.
+
 ## Installation
 
-Add dependency to package.json:
-
 ```
-"dependencies": {
-	"nomad-codecheck": "git+ssh://git@ship.nomadinteractive.co:nomad-interactive/nomad-codecheck.git"
-}
+npm install nomad-codecheck --save-dev
 ```
-
-Then ```npm install```
-
 
 ## Setting up rule configuration
 
@@ -29,6 +24,20 @@ module.exports = {
 	]
 }
 ```
+
+## Usage
+
+Add the nomad-codecheck app call in your scripts in package.json and use it as chain call in your pre-commit or CI commands.
+
+```
+"scripts": {
+	"check": "nomad-codecheck ./src"
+},
+```
+
+Now you can use it with ```npm run check```.
+
+Program will exit -1 if any of the rules will fail, it will print the status of each rule and the breakdown of the failed checks.
 
 
 ## Available rules
@@ -50,4 +59,8 @@ This rule enforces the practice of keeping all persistent storage use cases to b
 
 ## Example use
 
-See https://ship.nomadinteractive.co/nomad-interactive/nomad-codecheck-example repository for an example app that will display the rule violations when ```npm run check``` command executed
+See https://github.com/nomadinteractive/nomad-codecheck-example repository for an example app that will display the rule violations when ```npm run check``` command executed
+
+## License
+
+[MIT](LICENSE.md)
